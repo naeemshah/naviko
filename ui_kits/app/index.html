@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Naviko App — UI Kit</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html, body { height: 100%; }
+body {
+  background: #080810; color: #fff;
+  font-family: 'DM Sans', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  display: flex; align-items: center; justify-content: center;
+  min-height: 100vh;
+}
+@keyframes spin { to { transform: rotate(360deg); } }
+@keyframes pulse-ring {
+  0% { transform: scale(1); opacity: 0.6; }
+  100% { transform: scale(1.5); opacity: 0; }
+}
+@keyframes fadeIn { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
+</style>
+</head>
+<body>
+<div id="root"></div>
+
+<script type="text/babel" src="AppNav.jsx"></script>
+<script type="text/babel" src="Checklist.jsx"></script>
+<script type="text/babel" src="Upload.jsx"></script>
+<script type="text/babel" src="GreenLight.jsx"></script>
+
+<script type="text/babel">
+
+const STEPS = ['Checklist', 'Upload', 'Verify', 'Green Light'];
+const STEP_TITLES = ['Document checklist', 'Upload documents', 'AI verification', 'Green Light'];
+
+// Splash/onboarding screen
+const Splash = ({ onStart }) => (
+  <div style={{ flex: 1, display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', padding: '32px 24px', textAlign: 'center', position: 'relative', overflow: 'hidden' }}>
+    <div style={{ position: 'absolute', top: -100, left: '50%', transform: 'translateX(-50%)', width: 400, height: 400, background: 'radial-gradient(ellipse, rgba(127,119,221,0.15) 0%, transparent 70%)', pointerEvents: 'none' }}></div>
+    <div style={{ position: 'relative', marginBottom: 32 }}>
+      {/* App icon */}
+      <div style={{ width: 72, height: 72, borderRadius: 18, background: '#0f0e17', border: '1px solid rgba(127,119,221,0.3)', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', gap: 4, margin: '0 auto', boxShadow: '0 8px 32px rgba(127,119,221,0.2)' }}>
+        <span style={{ fontSize: 32, fontWeight: 700, color: '#fff', lineHeight: 1, fontFamily: 'DM Sans, sans-serif' }}>N</span>
+        <span style={{ display: 'block', height: 2.5, width: 32, background: '#7F77DD', borderRadius: 2 }}></span>
+      </div>
+    </div>
+
+    <div style={{ fontFamily: 'DM Mono, monospace', fontSize: 10, textTransform: 'uppercase', letterSpacing: '0.1em', color: '#7F77DD', marginBottom: 12 }}>
+      <span style={{ display: 'inline-block', width: 6, height: 6, borderRadius: '50%', background: '#7F77DD', marginRight: 6, verticalAlign: 'middle', animation: 'pulse-ring-sm 2s ease-in-out infinite' }}></span>
+      Early access
+    </div>
+
+    <h1 style={{ fontSize: 28, fontWeight: 700, letterSpacing: '-0.5px', lineHeight: 1.2, marginBottom: 14, color: '#fff' }}>
+      Get your<br/>green light.
+    </h1>
+    <p style={{ fontSize: 15, color: '#9995b3', lineHeight: 1.65, maxWidth: 260, marginBottom: 40 }}>
+      AI verifies every document before you submit — catching the fixable errors that cause 30% of rejections.
+    </p>
+
+    <button onClick={onStart} style={{
+      width: '100%', fontFamily: 'DM Sans, sans-serif', fontSize: 15, fontWeight: 600,
+      padding: '14px', borderRadius: 999, background: '#7F77DD', color: '#fff', border: 'none', cursor: 'pointer',
+      boxShadow: '0 4px 24px rgba(127,119,221,0.3)', marginBottom: 12
+    }}>Check my documents free</button>
+    <button style={{
+      width: '100%', fontFamily: 'DM Sans, sans-serif', fontSize: 15, fontWeight: 600,
+      padding: '14px', borderRadius: 999, background: 'transparent', color: '#9995b3',
+      border: '1.5px solid rgba(127,119,221,0.2)', cursor: 'pointer'
+    }}>Sign in</button>
+
+    <p style={{ marginTop: 24, fontSize: 11, color: '#9995b3', opacity: 0.55, lineHeight: 1.6, maxWidth: 240 }}>
+      Not legal advice. AI guidance only.<br/>For complex cases, consult a licensed attorney.
+    </p>
+  </div>
+);
+
+// Verify loading screen
+const Verify = ({ onNext }) => {
+  const [progress, setProgress] = React.useState(0);
+  const checks = [
+    'Reading passport data…',
+    'Checking photo specifications…',
+    'Validating employment letter…',
+    'Cross-referencing name consistency…',
+    'Verifying date ranges…',
+  ];
+  const [currentCheck, setCurrentCheck] = React.useState(0);
+
+  React.useEffect(() => {
+    const interval = setInterval(() => {
+      setProgress(p => {
+        if (p >= 100) { clearInterval(interval); setTimeout(onNext, 600); return 100; }
+        return p + 2;
+      });
+    }, 50);
+    const checkInterval = setInterval(() => {
+      setCurrentCheck(c => Math.min(c + 1, checks.length - 1));
+    }, 500);
+    return () => { clearInterval(interval); clearInterval(checkInterval); };
+  }, []);
+
+  return (
+    <div style={{ flex: 1, display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', padding: '32px 24px', textAlign: 'center' }}>
+      <div style={{ position: 'relative', marginBottom: 32 }}>
+        <div style={{ position: 'absolute', inset: -8, borderRadius: '50%', border: '2px solid rgba(127,119,221,0.2)', animation: 'pulse-ring 1.5s ease-out infinite' }}></div>
+        <div style={{ width: 80, height: 80, borderRadius: '50%', background: 'rgba(127,119,221,0.08)', border: '2px solid rgba(127,119,221,0.3)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+          <div style={{ width: 28, height: 28, border: '3px solid rgba(127,119,221,0.2)', borderTopColor: '#7F77DD', borderRadius: '50%', animation: 'spin 0.8s linear infinite' }}></div>
+        </div>
+      </div>
+
+      <div style={{ fontFamily: 'DM Mono, monospace', fontSize: 10, textTransform: 'uppercase', letterSpacing: '0.1em', color: '#7F77DD', marginBottom: 12 }}>AI verification in progress</div>
+      <h2 style={{ fontSize: 22, fontWeight: 700, letterSpacing: '-0.3px', marginBottom: 8 }}>Scanning your documents</h2>
+      <p style={{ fontSize: 13.5, color: '#9995b3', marginBottom: 28, height: 20 }}>{checks[currentCheck]}</p>
+
+      <div style={{ width: '100%', background: 'rgba(127,119,221,0.1)', borderRadius: 4, height: 4, marginBottom: 8 }}>
+        <div style={{ height: '100%', background: '#7F77DD', borderRadius: 4, width: `${progress}%`, transition: 'width 0.1s' }}></div>
+      </div>
+      <div style={{ fontFamily: 'DM Mono, monospace', fontSize: 11, color: '#9995b3' }}>{progress}%</div>
+    </div>
+  );
+};
+
+const App = () => {
+  const [screen, setScreen] = React.useState('splash'); // splash | checklist | upload | verify | greenlight
+
+  const screenToStep = { splash: 0, checklist: 1, upload: 2, verify: 3, greenlight: 4 };
+  const step = screenToStep[screen] || 0;
+
+  const phoneContent = (
+    <div style={{
+      width: 390, height: 780, background: '#0f0e17',
+      borderRadius: 44, overflow: 'hidden', display: 'flex', flexDirection: 'column',
+      boxShadow: '0 32px 80px rgba(0,0,0,0.7), 0 0 0 1px rgba(127,119,221,0.15)',
+      position: 'relative'
+    }}>
+      {/* Status bar */}
+      <div style={{ height: 44, background: '#0f0e17', display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '0 24px', flexShrink: 0 }}>
+        <span style={{ fontFamily: 'DM Mono, monospace', fontSize: 11, fontWeight: 600, color: '#fff' }}>9:41</span>
+        <div style={{ display: 'flex', gap: 6, alignItems: 'center' }}>
+          <svg width="14" height="10" viewBox="0 0 14 10" fill="none"><rect x="0" y="3" width="2" height="7" rx="1" fill="#fff" opacity="0.4"/><rect x="3" y="2" width="2" height="8" rx="1" fill="#fff" opacity="0.6"/><rect x="6" y="1" width="2" height="9" rx="1" fill="#fff" opacity="0.8"/><rect x="9" y="0" width="2" height="10" rx="1" fill="#fff"/></svg>
+          <svg width="14" height="10" viewBox="0 0 14 10" fill="none"><path d="M7 2C9.5 2 11.7 3.1 13.2 4.8L7 8l-6.2-3.2C2.3 3.1 4.5 2 7 2z" fill="#fff" opacity="0.5"/><path d="M7 4C8.5 4 9.9 4.7 10.8 5.8L7 8l-3.8-2.2C4.1 4.7 5.5 4 7 4z" fill="#fff" opacity="0.7"/><circle cx="7" cy="8" r="1.5" fill="#fff"/></svg>
+          <div style={{ width: 22, height: 11, border: '1px solid rgba(255,255,255,0.35)', borderRadius: 3, display: 'flex', alignItems: 'center', padding: '1px 2px', gap: 1 }}>
+            <div style={{ flex: 1, height: '100%', background: '#1D9E75', borderRadius: 1.5 }}></div>
+            <div style={{ width: 2, height: 5, background: 'rgba(255,255,255,0.4)', borderRadius: 1, marginLeft: 1 }}></div>
+          </div>
+        </div>
+      </div>
+
+      {/* Nav (shown after splash) */}
+      {screen !== 'splash' && (
+        <AppNav
+          step={step}
+          totalSteps={4}
+          title={STEP_TITLES[step - 1]}
+          onBack={screen !== 'checklist' ? () => {
+            const prev = { upload: 'checklist', verify: 'upload', greenlight: 'verify' };
+            setScreen(prev[screen]);
+          } : null}
+        />
+      )}
+
+      {/* Screen content */}
+      {screen === 'splash'     && <Splash onStart={() => setScreen('checklist')} />}
+      {screen === 'checklist'  && <Checklist onNext={() => setScreen('upload')} />}
+      {screen === 'upload'     && <Upload onNext={() => setScreen('verify')} />}
+      {screen === 'verify'     && <Verify onNext={() => setScreen('greenlight')} />}
+      {screen === 'greenlight' && <GreenLight onDone={() => setScreen('splash')} />}
+
+      {/* Home indicator */}
+      <div style={{ height: 30, display: 'flex', alignItems: 'flex-end', justifyContent: 'center', paddingBottom: 8, flexShrink: 0 }}>
+        <div style={{ width: 120, height: 4, background: 'rgba(255,255,255,0.2)', borderRadius: 2 }}></div>
+      </div>
+    </div>
+  );
+
+  return (
+    <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 24, padding: 32 }}>
+      {/* Kit label */}
+      <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
+        <div style={{ position: 'relative', display: 'inline-block' }}>
+          <span style={{ fontSize: 16, fontWeight: 700, color: '#fff', letterSpacing: '-0.3px' }}>Naviko</span>
+          <span style={{ display: 'block', position: 'absolute', bottom: -1, left: 0, right: 0, height: 2, background: '#7F77DD', borderRadius: 1 }}></span>
+        </div>
+        <span style={{ fontFamily: 'DM Mono, monospace', fontSize: 11, color: '#9995b3', letterSpacing: '0.08em', textTransform: 'uppercase' }}>App UI Kit</span>
+      </div>
+
+      {/* Flow nav */}
+      <div style={{ display: 'flex', gap: 8 }}>
+        {['splash','checklist','upload','verify','greenlight'].map(s => (
+          <button key={s} onClick={() => setScreen(s)} style={{
+            fontFamily: 'DM Mono, monospace', fontSize: 10, textTransform: 'uppercase', letterSpacing: '0.06em',
+            padding: '5px 12px', borderRadius: 999, cursor: 'pointer', border: 'none',
+            background: screen === s ? '#7F77DD' : 'rgba(127,119,221,0.1)',
+            color: screen === s ? '#fff' : '#9995b3',
+            transition: 'all 0.2s'
+          }}>{s}</button>
+        ))}
+      </div>
+
+      {phoneContent}
+    </div>
+  );
+};
+
+ReactDOM.createRoot(document.getElementById('root')).render(<App />);
+</script>
+</body>
+</html>

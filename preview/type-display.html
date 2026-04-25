@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { background: #0f0e17; font-family: 'DM Sans', sans-serif; padding: 28px 24px; display: flex; flex-direction: column; gap: 0; }
+.row { display: flex; align-items: baseline; gap: 20px; padding: 14px 0; border-bottom: 1px solid rgba(127,119,221,0.12); }
+.row:last-child { border-bottom: none; }
+.meta { min-width: 110px; flex-shrink: 0; }
+.tag { font-family: 'DM Mono', monospace; font-size: 10px; color: #7F77DD; text-transform: uppercase; letter-spacing: 0.08em; }
+.spec { font-family: 'DM Mono', monospace; font-size: 9px; color: #9995b3; margin-top: 2px; }
+</style>
+</head>
+<body>
+  <div class="row">
+    <div class="meta"><div class="tag">Display</div><div class="spec">clamp 40–80px<br>wt 700 / -0.025em</div></div>
+    <div style="font-size:clamp(32px,5vw,56px);font-weight:700;letter-spacing:-0.025em;line-height:1.05;color:#fff">Navigate your path.</div>
+  </div>
+  <div class="row">
+    <div class="meta"><div class="tag">H1</div><div class="spec">clamp 32–56px<br>wt 700 / -0.02em</div></div>
+    <div style="font-size:clamp(26px,3.5vw,44px);font-weight:700;letter-spacing:-0.02em;line-height:1.1;color:#fff">AI-guided compliance</div>
+  </div>
+  <div class="row">
+    <div class="meta"><div class="tag">H2</div><div class="spec">clamp 24–40px<br>wt 700 / -0.02em</div></div>
+    <div style="font-size:clamp(22px,3vw,36px);font-weight:700;letter-spacing:-0.018em;line-height:1.15;color:#fff">From panic to prepared</div>
+  </div>
+  <div class="row">
+    <div class="meta"><div class="tag">H3</div><div class="spec">28px / wt 700<br>-0.015em</div></div>
+    <div style="font-size:22px;font-weight:700;letter-spacing:-0.015em;color:#fff">Dynamic rules engine</div>
+  </div>
+  <div class="row">
+    <div class="meta"><div class="tag">H4</div><div class="spec">20px / wt 600<br>-0.01em</div></div>
+    <div style="font-size:18px;font-weight:600;letter-spacing:-0.01em;color:#fff">Document verification</div>
+  </div>
+</body>
+</html>

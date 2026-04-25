@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { background: #0f0e17; font-family: 'DM Sans', sans-serif; padding: 28px 24px; }
+.steps { display: flex; align-items: center; gap: 0; }
+.step { display: flex; flex-direction: column; align-items: center; gap: 6px; position: relative; flex: 1; }
+.step:not(:last-child)::after { content: ''; position: absolute; top: 14px; left: calc(50% + 16px); right: calc(-50% + 16px); height: 1px; background: rgba(127,119,221,0.18); z-index: 0; }
+.step.done:not(:last-child)::after { background: #1D9E75; }
+.step.active:not(:last-child)::after { background: rgba(127,119,221,0.3); }
+.dot { width: 28px; height: 28px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-family: 'DM Mono', monospace; font-size: 11px; font-weight: 500; position: relative; z-index: 1; }
+.dot-done { background: rgba(29,158,117,0.15); border: 2px solid #1D9E75; }
+.dot-active { background: rgba(127,119,221,0.15); border: 2px solid #7F77DD; }
+.dot-pending { background: rgba(153,149,179,0.08); border: 2px solid rgba(153,149,179,0.2); }
+.step-label { font-size: 11px; font-weight: 500; white-space: nowrap; }
+.l-done { color: #1D9E75; }
+.l-active { color: #fff; }
+.l-pending { color: #9995b3; }
+</style>
+</head>
+<body>
+  <div class="steps">
+    <div class="step done">
+      <div class="dot dot-done"><svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M3 6l2.5 2.5L9 4" stroke="#1D9E75" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+      <span class="step-label l-done">Checklist</span>
+    </div>
+    <div class="step done">
+      <div class="dot dot-done"><svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M3 6l2.5 2.5L9 4" stroke="#1D9E75" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+      <span class="step-label l-done">Upload</span>
+    </div>
+    <div class="step active">
+      <div class="dot dot-active"><span style="color:#7F77DD;font-size:10px">03</span></div>
+      <span class="step-label l-active">Verify</span>
+    </div>
+    <div class="step">
+      <div class="dot dot-pending"><span style="color:#9995b3;font-size:10px">04</span></div>
+      <span class="step-label l-pending">Green Light</span>
+    </div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { background: #0f0e17; font-family: 'DM Sans', sans-serif; padding: 24px; display: flex; gap: 24px; align-items: flex-start; flex-wrap: wrap; }
+.state { display: flex; flex-direction: column; align-items: center; gap: 12px; }
+.tag { font-family: 'DM Mono', monospace; font-size: 9px; text-transform: uppercase; letter-spacing: 0.08em; color: #9995b3; }
+.circle { width: 80px; height: 80px; border-radius: 50%; display: flex; align-items: center; justify-content: center; position: relative; }
+.c-waiting { background: rgba(153,149,179,0.10); border: 2px solid rgba(153,149,179,0.2); }
+.c-processing { background: rgba(127,119,221,0.10); border: 2px solid rgba(127,119,221,0.3); }
+.c-ready { background: rgba(29,158,117,0.15); border: 2px solid #1D9E75; box-shadow: 0 0 28px rgba(29,158,117,0.3); }
+@keyframes pulse-ring {
+  0% { transform: scale(1); opacity: 0.6; }
+  100% { transform: scale(1.4); opacity: 0; }
+}
+.pulse-ring { position: absolute; inset: -4px; border-radius: 50%; border: 2px solid rgba(127,119,221,0.4); animation: pulse-ring 1.5s ease-out infinite; }
+.label { font-size: 12px; font-weight: 600; }
+.l-waiting { color: #9995b3; }
+.l-processing { color: #7F77DD; }
+.l-ready { color: #1D9E75; }
+</style>
+</head>
+<body>
+  <div class="state">
+    <div class="tag">Waiting</div>
+    <div class="circle c-waiting">
+      <svg width="28" height="28" viewBox="0 0 28 28" fill="none"><circle cx="14" cy="14" r="10" stroke="#9995b3" stroke-width="1.5" stroke-dasharray="3 3"/></svg>
+    </div>
+    <div class="label l-waiting">Not ready</div>
+  </div>
+  <div class="state">
+    <div class="tag">Processing</div>
+    <div class="circle c-processing">
+      <div class="pulse-ring"></div>
+      <svg width="28" height="28" viewBox="0 0 28 28" fill="none"><circle cx="14" cy="14" r="10" stroke="#7F77DD" stroke-width="1.5"/><path d="M14 9v5l3 3" stroke="#7F77DD" stroke-width="1.5" stroke-linecap="round"/></svg>
+    </div>
+    <div class="label l-processing">Scanning…</div>
+  </div>
+  <div class="state">
+    <div class="tag">Green Light</div>
+    <div class="circle c-ready">
+      <svg width="32" height="32" viewBox="0 0 32 32" fill="none"><circle cx="16" cy="16" r="12" fill="rgba(29,158,117,0.2)"/><path d="M10 16l4.5 4.5 7.5-7.5" stroke="#1D9E75" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </div>
+    <div class="label l-ready">Ready to submit</div>
+  </div>
+</body>
+</html>

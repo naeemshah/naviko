@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { background: #0f0e17; font-family: 'DM Sans', sans-serif; padding: 24px; display: flex; flex-direction: column; gap: 14px; }
+.row { display: flex; gap: 8px; flex-wrap: wrap; align-items: center; }
+.lbl { font-family: 'DM Mono', monospace; font-size: 9px; color: #9995b3; text-transform: uppercase; letter-spacing: 0.08em; width: 56px; }
+.badge { font-family: 'DM Mono', monospace; font-size: 11px; font-weight: 600; padding: 4px 10px; border-radius: 999px; letter-spacing: 0.02em; }
+.badge-lg { font-size: 12px; padding: 6px 14px; }
+.purple { background: rgba(127,119,221,0.12); color: #7F77DD; border: 1px solid rgba(127,119,221,0.25); }
+.teal   { background: rgba(29,158,117,0.12);  color: #1D9E75; border: 1px solid rgba(29,158,117,0.25); }
+.warn   { background: rgba(251,191,36,0.10);  color: #fbbf24; border: 1px solid rgba(251,191,36,0.2); }
+.error  { background: rgba(239,68,68,0.12);   color: #f87171; border: 1px solid rgba(239,68,68,0.25); }
+.neutral{ background: rgba(153,149,179,0.12); color: #9995b3; border: 1px solid rgba(153,149,179,0.2); }
+</style>
+</head>
+<body>
+  <div class="row">
+    <div class="lbl">Small</div>
+    <span class="badge purple">AI-verified</span>
+    <span class="badge teal">Green light</span>
+    <span class="badge warn">Needs review</span>
+    <span class="badge error">Fix this</span>
+    <span class="badge neutral">Pending</span>
+  </div>
+  <div class="row">
+    <div class="lbl">Large</div>
+    <span class="badge badge-lg purple">F-1 Visa</span>
+    <span class="badge badge-lg teal">✓ Compliant</span>
+    <span class="badge badge-lg warn">Expires soon</span>
+    <span class="badge badge-lg error">Missing</span>
+    <span class="badge badge-lg neutral">Early access</span>
+  </div>
+  <div class="row">
+    <div class="lbl">Context</div>
+    <span class="badge teal">Pass</span>
+    <span class="badge error">Fix This</span>
+    <span class="badge neutral">Missing</span>
+    <span class="badge purple">Processing</span>
+  </div>
+</body>
+</html>

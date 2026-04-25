@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;600;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { background: #0f0e17; font-family: 'DM Sans', sans-serif; padding: 24px; display: flex; flex-direction: column; gap: 16px; }
+.row { display: flex; gap: 10px; align-items: center; flex-wrap: wrap; }
+.lbl { font-family: 'DM Mono', monospace; font-size: 9px; color: #9995b3; text-transform: uppercase; letter-spacing: 0.08em; width: 68px; flex-shrink: 0; }
+button { font-family: 'DM Sans', sans-serif; font-size: 13px; font-weight: 600; border: none; cursor: pointer; transition: all 0.2s; }
+.btn-primary { background: #7F77DD; color: #fff; padding: 9px 20px; border-radius: 999px; }
+.btn-primary:hover { opacity: 0.88; box-shadow: 0 4px 20px rgba(127,119,221,0.45); transform: translateY(-1px); }
+.btn-secondary { background: rgba(127,119,221,0.12); color: #7F77DD; padding: 9px 20px; border-radius: 999px; border: 1px solid rgba(127,119,221,0.25) !important; }
+.btn-secondary:hover { background: rgba(127,119,221,0.2); }
+.btn-ghost { background: transparent; color: #9995b3; padding: 9px 20px; border-radius: 999px; border: 1.5px solid rgba(127,119,221,0.18) !important; }
+.btn-ghost:hover { color: #fff; border-color: rgba(127,119,221,0.5) !important; transform: translateY(-1px); }
+.btn-danger { background: rgba(239,68,68,0.12); color: #f87171; padding: 9px 20px; border-radius: 999px; border: 1px solid rgba(239,68,68,0.25) !important; }
+.btn-danger:hover { background: rgba(239,68,68,0.2); }
+.btn-disabled { background: rgba(127,119,221,0.12); color: rgba(127,119,221,0.35); padding: 9px 20px; border-radius: 999px; cursor: not-allowed; }
+</style>
+</head>
+<body>
+  <div class="row"><div class="lbl">Primary</div><button class="btn-primary">Check my documents free</button><button class="btn-primary">Get verified for $49</button></div>
+  <div class="row"><div class="lbl">Secondary</div><button class="btn-secondary">Learn more</button><button class="btn-secondary">View checklist</button></div>
+  <div class="row"><div class="lbl">Ghost</div><button class="btn-ghost">Watch how it works</button><button class="btn-ghost">Start free</button></div>
+  <div class="row"><div class="lbl">Danger</div><button class="btn-danger">Remove document</button></div>
+  <div class="row"><div class="lbl">Disabled</div><button class="btn-disabled">Submit application</button></div>
+</body>
+</html>

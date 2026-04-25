@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { background: #0f0e17; font-family: 'DM Sans', sans-serif; padding: 24px; }
+.scale { display: flex; align-items: flex-end; gap: 12px; flex-wrap: wrap; }
+.item { display: flex; flex-direction: column; align-items: center; gap: 6px; }
+.bar { background: rgba(127,119,221,0.18); border: 1px solid rgba(127,119,221,0.3); border-radius: 3px; width: 28px; transition: background 0.2s; }
+.bar:hover { background: rgba(127,119,221,0.35); }
+.lbl { font-family: 'DM Mono', monospace; font-size: 9px; color: #9995b3; text-align: center; }
+</style>
+</head>
+<body>
+  <div class="scale">
+    <div class="item"><div class="bar" style="height:4px"></div><div class="lbl">4</div></div>
+    <div class="item"><div class="bar" style="height:8px"></div><div class="lbl">8</div></div>
+    <div class="item"><div class="bar" style="height:12px"></div><div class="lbl">12</div></div>
+    <div class="item"><div class="bar" style="height:16px"></div><div class="lbl">16</div></div>
+    <div class="item"><div class="bar" style="height:24px"></div><div class="lbl">24</div></div>
+    <div class="item"><div class="bar" style="height:32px"></div><div class="lbl">32</div></div>
+    <div class="item"><div class="bar" style="height:48px"></div><div class="lbl">48</div></div>
+    <div class="item"><div class="bar" style="height:64px"></div><div class="lbl">64</div></div>
+    <div class="item"><div class="bar" style="height:80px"></div><div class="lbl">80</div></div>
+    <div class="item"><div class="bar" style="height:96px"></div><div class="lbl">96</div></div>
+    <div class="item"><div class="bar" style="height:128px"></div><div class="lbl">128</div></div>
+  </div>
+</body>
+</html>

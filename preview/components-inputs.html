@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { background: #0f0e17; font-family: 'DM Sans', sans-serif; padding: 24px; display: flex; flex-direction: column; gap: 14px; }
+.field-wrap { display: flex; flex-direction: column; gap: 5px; max-width: 320px; }
+label { font-size: 12px; font-weight: 600; color: #fff; }
+.helper { font-size: 11px; color: #9995b3; }
+.helper.error { color: #f87171; }
+.helper.success { color: #1D9E75; }
+input {
+  width: 100%; background: #0f0e17; border: 1.5px solid rgba(127,119,221,0.18);
+  border-radius: 12px; padding: 10px 14px; font-family: 'DM Sans', sans-serif;
+  font-size: 14px; color: #fff; outline: none; transition: border-color 0.2s, box-shadow 0.2s;
+}
+input::placeholder { color: #9995b3; opacity: 0.7; }
+input:focus { border-color: #7F77DD; box-shadow: 0 0 0 3px rgba(127,119,221,0.15); }
+input.error { border-color: #f87171; }
+input.error:focus { box-shadow: 0 0 0 3px rgba(239,68,68,0.12); }
+input.success { border-color: #1D9E75; }
+</style>
+</head>
+<body>
+  <div class="field-wrap">
+    <label>Email address</label>
+    <input type="text" placeholder="you@example.com">
+    <span class="helper">We'll send you a verification link.</span>
+  </div>
+  <div class="field-wrap">
+    <label>Visa type</label>
+    <input type="text" value="F-1 Student Visa" style="border-color:#7F77DD;box-shadow:0 0 0 3px rgba(127,119,221,0.15)">
+    <span class="helper">Focused state</span>
+  </div>
+  <div class="field-wrap">
+    <label>Passport number</label>
+    <input type="text" value="A12-3456" class="error">
+    <span class="helper error">Format must be two letters followed by 6 digits.</span>
+  </div>
+  <div class="field-wrap">
+    <label>Employment letter date</label>
+    <input type="text" value="March 15, 2025" class="success">
+    <span class="helper success">Date is within the valid range.</span>
+  </div>
+</body>
+</html>

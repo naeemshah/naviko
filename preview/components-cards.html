@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;600;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { background: #0f0e17; font-family: 'DM Sans', sans-serif; padding: 24px; display: flex; gap: 16px; flex-wrap: wrap; align-items: flex-start; }
+.card { background: #231f3a; border: 1px solid rgba(127,119,221,0.18); border-radius: 20px; padding: 24px; width: 260px; transition: border-color 0.25s, background 0.25s, transform 0.2s; position: relative; overflow: hidden; }
+.card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 1px; background: linear-gradient(90deg, transparent, rgba(127,119,221,0.5), transparent); opacity: 0; transition: opacity 0.3s; }
+.card:hover { border-color: rgba(127,119,221,0.35); background: #2c2750; transform: translateY(-2px); }
+.card:hover::before { opacity: 1; }
+.card.featured { border-color: #7F77DD; box-shadow: 0 0 32px rgba(127,119,221,0.15); }
+.card.featured::before { opacity: 1; }
+.card-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; }
+.card-title { font-size: 15px; font-weight: 600; color: #fff; }
+.badge { font-family: 'DM Mono', monospace; font-size: 11px; font-weight: 600; padding: 3px 9px; border-radius: 999px; }
+.badge-teal { background: rgba(29,158,117,0.12); color: #1D9E75; border: 1px solid rgba(29,158,117,0.25); }
+.badge-purple { background: rgba(127,119,221,0.12); color: #7F77DD; border: 1px solid rgba(127,119,221,0.25); }
+.card-body { font-size: 13.5px; color: #9995b3; line-height: 1.6; }
+.card-footer { margin-top: 18px; padding-top: 14px; border-top: 1px solid rgba(127,119,221,0.12); display: flex; gap: 8px; }
+button { font-family: 'DM Sans', sans-serif; font-size: 12px; font-weight: 600; border: none; cursor: pointer; padding: 7px 14px; border-radius: 999px; }
+.btn-p { background: #7F77DD; color: #fff; }
+.btn-g { background: transparent; color: #9995b3; border: 1.5px solid rgba(127,119,221,0.18) !important; }
+.step-num { font-family: 'DM Mono', monospace; font-size: 12px; color: #1D9E75; background: rgba(29,158,117,0.12); border: 1px solid rgba(29,158,117,0.25); border-radius: 999px; width: 28px; height: 28px; display: flex; align-items: center; justify-content: center; margin-bottom: 14px; font-weight: 600; }
+</style>
+</head>
+<body>
+  <div class="card">
+    <div class="card-header"><div class="card-title">Application Readiness</div><span class="badge badge-teal">87%</span></div>
+    <div class="card-body">Your H-1B packet is nearly complete. One document requires attention before you can receive your green light.</div>
+    <div class="card-footer"><button class="btn-p">View issues</button><button class="btn-g">Dismiss</button></div>
+  </div>
+  <div class="card featured">
+    <div class="card-header"><div class="card-title">Visa Verified</div><span class="badge badge-purple">Pro</span></div>
+    <div class="card-body">All 11 documents passed AI verification. Your F-1 application is ready to submit.</div>
+    <div class="card-footer"><button class="btn-p">Download summary</button></div>
+  </div>
+  <div class="card">
+    <div class="step-num">01</div>
+    <div class="card-title" style="margin-bottom:8px">Pick your visa</div>
+    <div class="card-body">Tell Naviko which visa you're applying for — Canadian PR, US H-1B, student visa, work permit, and more.</div>
+  </div>
+</body>
+</html>

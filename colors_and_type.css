@@ -1,0 +1,247 @@
+/* ============================================================
+   NAVIKO DESIGN SYSTEM — colors_and_type.css
+   Source of truth: naviko/Naviko.html
+   ============================================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&family=DM+Mono:wght@400;500&display=swap');
+
+/* ── BASE TOKENS ─────────────────────────────────────────────── */
+:root {
+
+  /* Backgrounds */
+  --bg-primary:        #0f0e17;
+  --bg-secondary:      #1a1730;
+  --surface:           #231f3a;
+  --surface-hover:     #2c2750;
+
+  /* Brand — Purple */
+  --purple:            #7F77DD;
+  --purple-light:      #EEEDFE;
+  --purple-dim:        rgba(127, 119, 221, 0.12);
+  --purple-border:     rgba(127, 119, 221, 0.25);
+  --purple-glow:       rgba(127, 119, 221, 0.4);
+  --purple-glow-card:  rgba(127, 119, 221, 0.15);
+
+  /* Brand — Teal / Success */
+  --teal:              #1D9E75;
+  --teal-dim:          rgba(29, 158, 117, 0.12);
+  --teal-border:       rgba(29, 158, 117, 0.25);
+
+  /* Text */
+  --text-primary:      #ffffff;
+  --text-secondary:    #9995b3;
+
+  /* Border */
+  --border:            rgba(127, 119, 221, 0.18);
+
+  /* Status */
+  --status-success:    #1D9E75;
+  --status-success-bg: rgba(29, 158, 117, 0.12);
+  --status-warning:    #fbbf24;
+  --status-warning-bg: rgba(251, 191, 36, 0.10);
+  --status-error:      #f87171;
+  --status-error-bg:   rgba(239, 68, 68, 0.12);
+  --status-info:       #7F77DD;
+  --status-info-bg:    rgba(127, 119, 221, 0.12);
+  --status-neutral:    #9995b3;
+  --status-neutral-bg: rgba(153, 149, 179, 0.12);
+
+  /* Border Radius */
+  --radius-xs:         4px;
+  --radius-sm:         6px;
+  --radius-md:         12px;
+  --radius-lg:         20px;
+  --radius-xl:         28px;
+  --radius-pill:       999px;
+
+  /* Typography */
+  --font-sans:         'DM Sans', sans-serif;
+  --font-mono:         'DM Mono', monospace;
+  --font-display:      'DM Sans', sans-serif; /* bold 700, tight tracking */
+
+  /* Spacing (4px base unit) */
+  --space-1:           4px;
+  --space-2:           8px;
+  --space-3:           12px;
+  --space-4:           16px;
+  --space-5:           20px;
+  --space-6:           24px;
+  --space-8:           32px;
+  --space-10:          40px;
+  --space-12:          48px;
+  --space-16:          64px;
+  --space-20:          80px;
+  --space-24:          96px;
+  --space-32:          128px;
+
+  /* Transitions */
+  --transition-fast:   0.15s ease;
+  --transition-base:   0.2s ease;
+  --transition-slow:   0.3s ease;
+  --transition-fade:   0.7s ease;
+}
+
+/* ── SEMANTIC ALIASES ────────────────────────────────────────── */
+:root {
+  /* Semantic color refs */
+  --color-bg:          var(--bg-primary);
+  --color-bg-alt:      var(--bg-secondary);
+  --color-surface:     var(--surface);
+  --color-surface-hover: var(--surface-hover);
+  --color-accent:      var(--purple);
+  --color-accent-dim:  var(--purple-dim);
+  --color-success:     var(--teal);
+  --color-success-dim: var(--teal-dim);
+  --color-fg:          var(--text-primary);
+  --color-fg-muted:    var(--text-secondary);
+  --color-border:      var(--border);
+}
+
+/* ── TYPE SCALE ──────────────────────────────────────────────── */
+
+/* Display — hero headlines */
+.t-display {
+  font-family: var(--font-sans);
+  font-size: clamp(40px, 6vw, 80px);
+  font-weight: 700;
+  line-height: 1.05;
+  letter-spacing: -0.025em;
+  color: var(--text-primary);
+}
+
+/* H1 */
+.t-h1 {
+  font-family: var(--font-sans);
+  font-size: clamp(32px, 4vw, 56px);
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  color: var(--text-primary);
+}
+
+/* H2 — section headings */
+.t-h2 {
+  font-family: var(--font-sans);
+  font-size: clamp(24px, 3vw, 40px);
+  font-weight: 700;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  color: var(--text-primary);
+}
+
+/* H3 — card headings */
+.t-h3 {
+  font-family: var(--font-sans);
+  font-size: 28px;
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: -0.015em;
+  color: var(--text-primary);
+}
+
+/* H4 */
+.t-h4 {
+  font-family: var(--font-sans);
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 1.3;
+  letter-spacing: -0.01em;
+  color: var(--text-primary);
+}
+
+/* Body large */
+.t-body-lg {
+  font-family: var(--font-sans);
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 1.65;
+  color: var(--text-secondary);
+}
+
+/* Body */
+.t-body {
+  font-family: var(--font-sans);
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.6;
+  color: var(--text-secondary);
+}
+
+/* Caption */
+.t-caption {
+  font-family: var(--font-sans);
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 1.4;
+  color: var(--text-secondary);
+}
+
+/* Label — mono uppercase */
+.t-label {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.10em;
+  text-transform: uppercase;
+  color: var(--purple);
+}
+
+/* Mono — step numbers, prices, code */
+.t-mono {
+  font-family: var(--font-mono);
+  font-size: 13px;
+  font-weight: 400;
+  color: var(--text-secondary);
+}
+
+/* ── UTILITY CLASSES ─────────────────────────────────────────── */
+
+/* Text color utilities */
+.text-primary   { color: var(--text-primary); }
+.text-secondary { color: var(--text-secondary); }
+.text-purple    { color: var(--purple); }
+.text-teal      { color: var(--teal); }
+
+/* Background utilities */
+.bg-primary   { background: var(--bg-primary); }
+.bg-secondary { background: var(--bg-secondary); }
+.bg-surface   { background: var(--surface); }
+
+/* Border utilities */
+.border-default { border: 1px solid var(--border); }
+.border-purple  { border: 1px solid var(--purple); }
+.border-teal    { border: 1px solid var(--teal); }
+
+/* Radius utilities */
+.rounded-sm   { border-radius: var(--radius-sm); }
+.rounded-md   { border-radius: var(--radius-md); }
+.rounded-lg   { border-radius: var(--radius-lg); }
+.rounded-pill { border-radius: var(--radius-pill); }
+
+/* ── SCROLL FADE-IN ANIMATION ────────────────────────────────── */
+.fade-in {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity var(--transition-fade), transform var(--transition-fade);
+}
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+.fade-in.delay-1 { transition-delay: 0.1s; }
+.fade-in.delay-2 { transition-delay: 0.2s; }
+.fade-in.delay-3 { transition-delay: 0.3s; }
+.fade-in.delay-4 { transition-delay: 0.4s; }
+
+/* ── GLOBAL RESET ────────────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  font-family: var(--font-sans);
+  font-size: 16px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+a { text-decoration: none; color: inherit; }

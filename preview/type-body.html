@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { background: #0f0e17; font-family: 'DM Sans', sans-serif; padding: 24px; display: flex; flex-direction: column; gap: 0; }
+.row { display: flex; align-items: baseline; gap: 20px; padding: 14px 0; border-bottom: 1px solid rgba(127,119,221,0.12); }
+.row:last-child { border-bottom: none; }
+.meta { min-width: 110px; flex-shrink: 0; }
+.tag { font-family: 'DM Mono', monospace; font-size: 10px; color: #7F77DD; text-transform: uppercase; letter-spacing: 0.08em; }
+.spec { font-family: 'DM Mono', monospace; font-size: 9px; color: #9995b3; margin-top: 2px; }
+</style>
+</head>
+<body>
+  <div class="row">
+    <div class="meta"><div class="tag">Body-lg</div><div class="spec">18px / wt 400<br>1.65 lh</div></div>
+    <div style="font-size:17px;font-weight:400;line-height:1.65;color:#9995b3;max-width:480px">Our AI reads every file you upload and checks it against the exact government rules for your visa type.</div>
+  </div>
+  <div class="row">
+    <div class="meta"><div class="tag">Body</div><div class="spec">16px / wt 400<br>1.6 lh</div></div>
+    <div style="font-size:15px;font-weight:400;line-height:1.6;color:#9995b3;max-width:480px">Naviko monitors official government sources continuously — so your checklist reflects today's rules, not last year's blog post.</div>
+  </div>
+  <div class="row">
+    <div class="meta"><div class="tag">Caption</div><div class="spec">12px / wt 500</div></div>
+    <div style="font-size:12px;font-weight:500;color:#9995b3">Pass / Fix This / Missing — with an explanation you can act on.</div>
+  </div>
+  <div class="row">
+    <div class="meta"><div class="tag">Label</div><div class="spec">11px / mono<br>0.10em spacing</div></div>
+    <div style="font-family:'DM Mono',monospace;font-size:11px;font-weight:500;letter-spacing:0.10em;text-transform:uppercase;color:#7F77DD">The process</div>
+  </div>
+</body>
+</html>

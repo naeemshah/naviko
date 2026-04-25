@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { background: #0f0e17; font-family: 'DM Sans', sans-serif; padding: 32px; display: flex; flex-direction: column; gap: 40px; align-items: flex-start; }
+.section-lbl { font-family: 'DM Mono', monospace; font-size: 9px; color: #9995b3; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 14px; }
+.light-box { background: #f4f3ff; border-radius: 12px; padding: 24px 28px; display: inline-flex; align-items: center; gap: 32px; }
+/* Logo image — dark bg: lavender tint matching hero gradient */
+.logo-dark { filter: invert(1) grayscale(1) sepia(1) saturate(3) hue-rotate(215deg) brightness(1.6); mix-blend-mode: screen; display: block; }
+/* Logo image — light bg: use original dark navy */
+.logo-light { display: block; }
+/* App icon */
+.app-icon { width: 64px; height: 64px; background: #0f0e17; border-radius: 14px; border: 1px solid rgba(127,119,221,0.25); display: flex; align-items: center; justify-content: center; overflow: hidden; }
+.app-icon.sm { width: 40px; height: 40px; border-radius: 9px; }
+.app-icon.xs { width: 28px; height: 28px; border-radius: 6px; }
+.app-icon img { width: 80%; filter: invert(1) grayscale(1) sepia(1) saturate(3) hue-rotate(215deg) brightness(1.6); mix-blend-mode: screen; }
+</style>
+</head>
+<body>
+
+  <!-- Dark background -->
+  <div>
+    <div class="section-lbl">Wordmark — dark background</div>
+    <div style="display:flex;gap:32px;align-items:center;flex-wrap:wrap;">
+      <img src="../assets/naviko-wordmark.png" alt="Naviko" height="40" class="logo-dark">
+      <img src="../assets/naviko-wordmark.png" alt="Naviko" height="28" class="logo-dark">
+      <img src="../assets/naviko-wordmark.png" alt="Naviko" height="18" class="logo-dark">
+    </div>
+  </div>
+
+  <!-- Light background -->
+  <div>
+    <div class="section-lbl">Wordmark — light background</div>
+    <div class="light-box">
+      <img src="../assets/naviko-wordmark.png" alt="Naviko" height="40" class="logo-light">
+      <img src="../assets/naviko-wordmark.png" alt="Naviko" height="28" class="logo-light">
+      <img src="../assets/naviko-wordmark.png" alt="Naviko" height="18" class="logo-light">
+    </div>
+  </div>
+
+  <!-- App icon -->
+  <div>
+    <div class="section-lbl">App icon</div>
+    <div style="display:flex;gap:14px;align-items:flex-end">
+      <div class="app-icon"><img src="../assets/naviko-logo.png" alt="N"></div>
+      <div class="app-icon sm"><img src="../assets/naviko-logo.png" alt="N"></div>
+      <div class="app-icon xs"><img src="../assets/naviko-logo.png" alt="N"></div>
+    </div>
+  </div>
+
+</body>
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;600;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { background: #0f0e17; font-family: 'DM Sans', sans-serif; padding: 24px; display: flex; gap: 20px; flex-wrap: wrap; align-items: flex-start; }
+.group { display: flex; flex-direction: column; gap: 6px; }
+.label { font-family: 'DM Mono', monospace; font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase; color: #9995b3; margin-bottom: 4px; }
+.swatch { width: 80px; height: 52px; border-radius: 8px; }
+.name { font-family: 'DM Mono', monospace; font-size: 10px; color: #fff; margin-top: 4px; }
+.val  { font-family: 'DM Mono', monospace; font-size: 9px; color: #9995b3; }
+</style>
+</head>
+<body>
+<div class="group">
+  <div class="label">Text</div>
+  <div style="display:flex;gap:8px">
+    <div>
+      <div class="swatch" style="background:#ffffff;"></div>
+      <div class="name">text-primary</div><div class="val">#ffffff</div>
+    </div>
+    <div>
+      <div class="swatch" style="background:#9995b3;"></div>
+      <div class="name">text-secondary</div><div class="val">#9995b3</div>
+    </div>
+    <div>
+      <div class="swatch" style="background:rgba(127,119,221,0.18);border:1px solid rgba(127,119,221,0.3);"></div>
+      <div class="name">border</div><div class="val">purple/18%</div>
+    </div>
+  </div>
+</div>
+<div class="group">
+  <div class="label">Status</div>
+  <div style="display:flex;gap:8px">
+    <div>
+      <div class="swatch" style="background:#1D9E75;"></div>
+      <div class="name">success</div><div class="val">#1D9E75</div>
+    </div>
+    <div>
+      <div class="swatch" style="background:#fbbf24;"></div>
+      <div class="name">warning</div><div class="val">#fbbf24</div>
+    </div>
+    <div>
+      <div class="swatch" style="background:#f87171;"></div>
+      <div class="name">error</div><div class="val">#f87171</div>
+    </div>
+    <div>
+      <div class="swatch" style="background:#7F77DD;"></div>
+      <div class="name">info</div><div class="val">#7F77DD</div>
+    </div>
+    <div>
+      <div class="swatch" style="background:#9995b3;"></div>
+      <div class="name">neutral</div><div class="val">#9995b3</div>
+    </div>
+  </div>
+</div>
+</body>
+</html>
